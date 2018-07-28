@@ -13,16 +13,41 @@ class ViewController: UIViewController {
     // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
+    
+    // MARK: Outlets
+    @IBOutlet weak var countLabel: UILabel!
+    
+    
+    // MARK: Properties
+    var count = 0
+    
     
     // MARK: Interaction
     @IBAction func tapCounter(_ sender: UIButton) {
-        print ("tapCounter got tapped!")
+        increaseCount()
     }
     
     @IBAction func tapResetButton(_ sender: UIBarButtonItem) {
-        print ("reset button tapped!")
+        count = 0
+        countLabel.text = "0"
+    }
+    @IBAction func longPressTapButton(_ sender: UILongPressGestureRecognizer) {
+        increaseCount()
+    }
+    
+    // MARK: Function
+    func increaseCount() {
+        count = count + 1
+        countLabel.text = String(count)
     }
     
 }
+
+
+
+
 

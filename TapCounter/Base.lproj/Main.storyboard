@@ -18,20 +18,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="fOw-cV-mx8">
-                                <rect key="frame" x="171.66666666666666" y="320" width="32" height="172"/>
+                                <rect key="frame" x="138" y="320" width="99" height="172"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LjQ-Ko-Eci">
-                                        <rect key="frame" x="0.0" y="0.0" width="32" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="99" height="36"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu4-S2-Yks">
-                                        <rect key="frame" x="0.0" y="136" width="32" height="36"/>
+                                        <rect key="frame" x="0.0" y="136" width="99" height="36"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                        <state key="normal" title="Tap"/>
+                                        <state key="normal" title="Tap or Hold"/>
                                         <connections>
                                             <action selector="tapCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g6N-ik-8Kz"/>
+                                            <outletCollection property="gestureRecognizers" destination="pdg-Fu-23J" appends="YES" id="7UI-qK-8Q5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -51,8 +53,16 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="countLabel" destination="LjQ-Ko-Eci" id="api-nc-Kky"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.20000000000000001" id="pdg-Fu-23J">
+                    <connections>
+                        <action selector="longPressTapButton:" destination="BYZ-38-t0r" id="0NF-Ws-u5w"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1079.2" y="133.00492610837438"/>
         </scene>
