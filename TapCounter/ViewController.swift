@@ -10,11 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-
+    
+    // MARK: Interaction
+    @IBAction func tapCounter(_ sender: UIButton) {
+        print ("tapCounter got tapped!")
+    }
+    
+    @IBAction func tapResetButton(_ sender: UIBarButtonItem) {
+        print ("reset button tapped!")
+    }
+    
 }
 
